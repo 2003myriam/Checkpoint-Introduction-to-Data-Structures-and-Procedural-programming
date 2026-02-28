@@ -1,0 +1,48 @@
+ALGORITHM exo1
+VAR
+  array1 : ARRAY_OF INTEGER[4];
+  array2 : ARRAY_OF INTEGER[5];
+  somme1:INTEGER
+  somme2:INTEGER
+  somme:INTEGER
+  stock1:INTEGER
+  stock2:INTEGER
+  egale:BOOLEAN
+BEGIN
+  array1= {3,1,7,9}
+  array2={2,4,1,9,3}
+  somme1:=0
+  somme2:=0
+  somme:=0
+  egale=false
+  FOR i FROM 0 TO array1.length-1 STEP 1 DO
+    egale=false
+    FOR j FROM 0 TO array2.length-1  STEP 1 DO
+      IF (array1[i]=array2[j]) THEN
+        egale=true
+        break
+      END_IF
+    END_FOR
+    IF (egale=false) THEN
+      stock1:=array1[i]
+      somme1=somme1+stock1
+      Write("la premiere somme est :" , somme1)
+    END_IF
+  END_FOR
+  FOR j FROM 0 TO array2.length-1 STEP 1 DO
+    egale=false
+    FOR i FROM 0 TO array1.length-1  STEP 1 DO
+      IF (array1[i]=array2[j]) THEN
+        egale=true
+        break
+      END_IF
+    END_FOR
+    IF (egale=false) THEN
+      stock2:=array2[j]
+      somme2=somme2+stock2
+      Write("la 2eme  somme est :" , somme2)
+    END_IF
+  END_FOR
+  somme=somme1+somme2
+  Write("somme totale est :" somme)
+END
